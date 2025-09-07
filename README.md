@@ -42,8 +42,8 @@ Rules (read carefully)
  *  State maps: status, eligibleAtTick, running, dependents
 
  - lexipool.test.js
-
-  * Use node:test or assert:
+   
+    * Use node:test or assert:
 
       a) Determinism: same inputs ⇒ same schedule array
     
