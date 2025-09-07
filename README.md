@@ -44,13 +44,13 @@ Rules (read carefully)
  - lexipool.test.js
 
   * Use node:test or assert:
-    * Determinism: same inputs ⇒ same schedule array
-    * Tie-breaks: priority, then eligibility time, then id
-    * Eligibility time: jobs that become eligible later must not cut the line
-    * Dependency failure: propagate dependency-failed correctly
-    * Cancellation: before/after eligibility; doesn’t affect running jobs
-    * Cycles: simple 2-node cycle, 3-node SCC, mixed acyclic/acyclic subgraphs
-    * Concurrency: never exceed maxConcurrency; order of start events matches schedule
+    a) Determinism: same inputs ⇒ same schedule array
+    b) Tie-breaks: priority, then eligibility time, then id
+    c) Eligibility time: jobs that become eligible later must not cut the line
+    d) Dependency failure: propagate dependency-failed correctly
+    e) Cancellation: before/after eligibility; doesn’t affect running jobs
+    f) Cycles: simple 2-node cycle, 3-node SCC, mixed acyclic/acyclic subgraphs
+    g) Concurrency: never exceed maxConcurrency; order of start events matches schedule
       
  * No sleeping or timers—tests complete fast.
 
