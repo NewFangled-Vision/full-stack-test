@@ -32,38 +32,28 @@ Rules (read carefully)
    * { type:"cancelled", tag, count }
   
 
-****Deliverables*****
+****Deliverables****
 
-lexipool.js (or .ts)
+ - lexipool.js (or .ts)
+   
+ *  Implements LexiPool with clean data structures:
+ *  Graph build + SCC cycle detection (Tarjan/Kosaraju or a simpler DFS marking works)
+ *  Ready set with deterministic comparator (priority → eligibleAt → id)
+ *  State maps: status, eligibleAtTick, running, dependents
 
-Implements LexiPool with clean data structures:
+ - lexipool.test.js
 
-Graph build + SCC cycle detection (Tarjan/Kosaraju or a simpler DFS marking works)
+  * Use node:test or assert:
+    * Determinism: same inputs ⇒ same schedule array
+    * Tie-breaks: priority, then eligibility time, then id
+    * Eligibility time: jobs that become eligible later must not cut the line
+    * Dependency failure: propagate dependency-failed correctly
+    * Cancellation: before/after eligibility; doesn’t affect running jobs
+    * Cycles: simple 2-node cycle, 3-node SCC, mixed acyclic/acyclic subgraphs
+    * Concurrency: never exceed maxConcurrency; order of start events matches schedule
+      
+ * No sleeping or timers—tests complete fast.
 
-Ready set with deterministic comparator (priority → eligibleAt → id)
-
-State maps: status, eligibleAtTick, running, dependents
-
-lexipool.test.js
-
-Use node:test or assert:
-
-Determinism: same inputs ⇒ same schedule array
-
-Tie-breaks: priority, then eligibility time, then id
-
-Eligibility time: jobs that become eligible later must not cut the line
-
-Dependency failure: propagate dependency-failed correctly
-
-Cancellation: before/after eligibility; doesn’t affect running jobs
-
-Cycles: simple 2-node cycle, 3-node SCC, mixed acyclic/acyclic subgraphs
-
-Concurrency: never exceed maxConcurrency; order of start events matches schedule
-
-No sleeping or timers—tests complete fast.
-
-README.md
+ - README.md
 
 Brief reasoning: how you compute eligibility time, how you ensure determinism, how cycles are handled, and what invariants your tests assert.
