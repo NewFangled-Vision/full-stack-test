@@ -55,5 +55,4 @@ Rules (read carefully)
  * No sleeping or timers—tests complete fast.
 
  - README.md
-
- * Provide brief reasoning: how you compute eligibility time, how you ensure determinism, how cycles are handled, and what invariants your tests assert.
+    * Provide brief reasoning: how you compute eligibility time, how you ensure determinism, how cycles are handled, and what invariants your tests assert.
