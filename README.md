@@ -36,10 +36,10 @@ Rules (read carefully)
 
  - lexipool.js (or .ts)
    
- *  Implements LexiPool with clean data structures:
- *  Graph build + SCC cycle detection (Tarjan/Kosaraju or a simpler DFS marking works)
- *  Ready set with deterministic comparator (priority → eligibleAt → id)
- *  State maps: status, eligibleAtTick, running, dependents
+    *  Implements LexiPool with clean data structures:
+    *  Graph build + SCC cycle detection (Tarjan/Kosaraju or a simpler DFS marking works)
+    *  Ready set with deterministic comparator (priority → eligibleAt → id)
+    *  State maps: status, eligibleAtTick, running, dependents
 
  - lexipool.test.js
    
@@ -57,9 +57,9 @@ Rules (read carefully)
 
       f) Cycles: simple 2-node cycle, 3-node SCC, mixed acyclic/acyclic subgraphs
 
-    g) Concurrency: never exceed maxConcurrency; order of start events matches schedule
+      g) Concurrency: never exceed maxConcurrency; order of start events matches schedule
       
- * No sleeping or timers—tests complete fast.
+   * No sleeping or timers—tests complete fast.
 
  - README.md
     * Provide brief reasoning: how you compute eligibility time, how you ensure determinism, how cycles are handled, and what invariants your tests assert.
