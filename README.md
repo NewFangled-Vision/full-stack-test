@@ -45,11 +45,17 @@ Rules (read carefully)
 
   * Use node:test or assert:
     a) Determinism: same inputs ⇒ same schedule array
+    
     b) Tie-breaks: priority, then eligibility time, then id
+
     c) Eligibility time: jobs that become eligible later must not cut the line
+
     d) Dependency failure: propagate dependency-failed correctly
+
     e) Cancellation: before/after eligibility; doesn’t affect running jobs
+
     f) Cycles: simple 2-node cycle, 3-node SCC, mixed acyclic/acyclic subgraphs
+
     g) Concurrency: never exceed maxConcurrency; order of start events matches schedule
       
  * No sleeping or timers—tests complete fast.
